@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title %}{% endblock %} - personal blogger</title>
+<link rel="stylesheet" href="/assets/style.css" />
+</head>
+
+<body>
+<div class="main">
+<div class="main-wrapper">
+<span class="top-notify">
+{% if logged_in() %} 
+logged in as {{ logged_in() }} (<a href="/logout">Logout</a>) 
+{% else %}
+<a href="/signup">Signup</a> or <a href="/login">Login</a> 
+{% endif %}
+</span>
+<div class="site-header">
+<div class="site-title">Your Personal Blogger</div>
+</div>
+<div class="site-nav">
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/newpost">Create Post</a></li>
+</ul>
+</div>
+<div class="site-content">
+{% block content %}
+{% endblock %}
+</div>
+</body>
+
+</html>
